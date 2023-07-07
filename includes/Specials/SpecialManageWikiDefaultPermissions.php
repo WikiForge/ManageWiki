@@ -1,6 +1,6 @@
 <?php
 
-namespace Miraheze\ManageWiki\Specials;
+namespace WikiForge\ManageWiki\Specials;
 
 use Config;
 use ErrorPageError;
@@ -9,11 +9,11 @@ use Html;
 use HTMLForm;
 use ManualLogEntry;
 use MediaWiki\MediaWikiServices;
-use Miraheze\CreateWiki\RemoteWiki;
-use Miraheze\ManageWiki\FormFactory\ManageWikiFormFactory;
-use Miraheze\ManageWiki\Helpers\ManageWikiPermissions;
-use Miraheze\ManageWiki\Hooks;
-use Miraheze\ManageWiki\ManageWiki;
+use WikiForge\CreateWiki\RemoteWiki;
+use WikiForge\ManageWiki\FormFactory\ManageWikiFormFactory;
+use WikiForge\ManageWiki\Helpers\ManageWikiPermissions;
+use WikiForge\ManageWiki\Hooks;
+use WikiForge\ManageWiki\ManageWiki;
 use SpecialPage;
 use UserGroupMembership;
 

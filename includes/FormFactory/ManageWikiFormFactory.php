@@ -1,15 +1,15 @@
 <?php
 
-namespace Miraheze\ManageWiki\FormFactory;
+namespace WikiForge\ManageWiki\FormFactory;
 
 use Config;
 use Html;
 use HTMLForm;
 use IContextSource;
 use MediaWiki\MediaWikiServices;
-use Miraheze\CreateWiki\RemoteWiki;
-use Miraheze\ManageWiki\Helpers\ManageWikiOOUIForm;
-use Miraheze\ManageWiki\ManageWiki;
+use WikiForge\CreateWiki\RemoteWiki;
+use WikiForge\ManageWiki\Helpers\ManageWikiOOUIForm;
+use WikiForge\ManageWiki\ManageWiki;
 use MWException;
 use OutputPage;
 use Wikimedia\Rdbms\DBConnRef;

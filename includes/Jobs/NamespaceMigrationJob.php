@@ -1,6 +1,6 @@
 <?php
 
-namespace Miraheze\ManageWiki\Jobs;
+namespace WikiForge\ManageWiki\Jobs;
 
 use Job;
 use MediaWiki\MediaWikiServices;

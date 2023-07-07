@@ -1,11 +1,11 @@
 <?php
 
-namespace Miraheze\ManageWiki\Helpers;
+namespace WikiForge\ManageWiki\Helpers;
 
 use Exception;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Shell\Shell;
-use Miraheze\ManageWiki\Jobs\MWScriptJob;
+use WikiForge\ManageWiki\Jobs\MWScriptJob;
 use MWException;
 use Title;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Miraheze\ManageWiki;
+namespace WikiForge\ManageWiki;
 
 use DateTimeZone;
 use MediaWiki\MediaWikiServices;
-use Miraheze\CreateWiki\RemoteWiki;
+use WikiForge\CreateWiki\RemoteWiki;
 use User;
 
 class ManageWiki {

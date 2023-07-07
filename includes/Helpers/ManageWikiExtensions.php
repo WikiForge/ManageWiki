@@ -1,11 +1,11 @@
 <?php
 
-namespace Miraheze\ManageWiki\Helpers;
+namespace WikiForge\ManageWiki\Helpers;
 
 use Config;
 use MediaWiki\MediaWikiServices;
-use Miraheze\CreateWiki\CreateWikiJson;
-use Miraheze\CreateWiki\RemoteWiki;
+use WikiForge\CreateWiki\CreateWikiJson;
+use WikiForge\CreateWiki\RemoteWiki;
 use Wikimedia\Rdbms\MaintainableDBConnRef;
 
 /**

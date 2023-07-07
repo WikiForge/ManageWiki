@@ -1,6 +1,6 @@
 <?php
 
-namespace Miraheze\ManageWiki\Hooks;
+namespace WikiForge\ManageWiki\Hooks;
 
 use MediaWiki\HookContainer\HookContainer;
 

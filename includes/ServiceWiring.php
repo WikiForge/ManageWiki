@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use Miraheze\ManageWiki\Hooks\ManageWikiHookRunner;
+use WikiForge\ManageWiki\Hooks\ManageWikiHookRunner;
 
 return [
 	'ManageWikiHookRunner' => static function ( MediaWikiServices $services ): ManageWikiHookRunner {

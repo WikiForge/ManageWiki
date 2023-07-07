@@ -1,11 +1,11 @@
 <?php
 
-namespace Miraheze\ManageWiki\Api;
+namespace WikiForge\ManageWiki\Api;
 
 use ApiBase;
 use MediaWiki\MediaWikiServices;
-use Miraheze\CreateWiki\RemoteWiki;
-use Miraheze\ManageWiki\ManageWiki;
+use WikiForge\CreateWiki\RemoteWiki;
+use WikiForge\ManageWiki\ManageWiki;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiModifyServer extends ApiBase {

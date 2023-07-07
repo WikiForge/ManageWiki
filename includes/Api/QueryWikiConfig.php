@@ -1,14 +1,14 @@
 <?php
 
-namespace Miraheze\ManageWiki\Api;
+namespace WikiForge\ManageWiki\Api;
 
 use ApiBase;
 use ApiQueryBase;
 use MediaWiki\MediaWikiServices;
-use Miraheze\CreateWiki\RemoteWiki;
-use Miraheze\ManageWiki\Helpers\ManageWikiExtensions;
-use Miraheze\ManageWiki\Helpers\ManageWikiPermissions;
-use Miraheze\ManageWiki\Helpers\ManageWikiSettings;
+use WikiForge\CreateWiki\RemoteWiki;
+use WikiForge\ManageWiki\Helpers\ManageWikiExtensions;
+use WikiForge\ManageWiki\Helpers\ManageWikiPermissions;
+use WikiForge\ManageWiki\Helpers\ManageWikiSettings;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class QueryWikiConfig extends ApiQueryBase {

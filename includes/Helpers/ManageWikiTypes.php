@@ -1,10 +1,10 @@
 <?php
 
-namespace Miraheze\ManageWiki\Helpers;
+namespace WikiForge\ManageWiki\Helpers;
 
 use ContentHandler;
 use MediaWiki\MediaWikiServices;
-use Miraheze\ManageWiki\ManageWiki;
+use WikiForge\ManageWiki\ManageWiki;
 use Status;
 use UserGroupMembership;
 

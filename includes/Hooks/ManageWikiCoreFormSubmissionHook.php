@@ -1,9 +1,9 @@
 <?php
 
-namespace Miraheze\ManageWiki\Hooks;
+namespace WikiForge\ManageWiki\Hooks;
 
 use IContextSource;
-use Miraheze\CreateWiki\RemoteWiki;
+use WikiForge\CreateWiki\RemoteWiki;
 use Wikimedia\Rdbms\DBConnRef;
 
 interface ManageWikiCoreFormSubmissionHook {

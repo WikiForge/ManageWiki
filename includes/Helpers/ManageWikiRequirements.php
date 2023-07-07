@@ -1,9 +1,9 @@
 <?php
 
-namespace Miraheze\ManageWiki\Helpers;
+namespace WikiForge\ManageWiki\Helpers;
 
 use MediaWiki\MediaWikiServices;
-use Miraheze\CreateWiki\RemoteWiki;
+use WikiForge\CreateWiki\RemoteWiki;
 use RequestContext;
 use SiteStats;
 

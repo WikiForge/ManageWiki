@@ -7,7 +7,7 @@
 		"Reception123",
 		"Universal Omega"
 	],
-	"url": "https://github.com/miraheze/ManageWiki",
+	"url": "https://github.com/WikiForge/ManageWiki",
 	"descriptionmsg": "managewiki-desc",
 	"license-name": "GPL-3.0-or-later",
 	"type": "specialpage",
@@ -18,10 +18,10 @@
 		}
 	},
 	"APIListModules": {
-		"wikiconfig": "Miraheze\\ManageWiki\\Api\\QueryWikiConfig"
+		"wikiconfig": "WikiForge\\ManageWiki\\Api\\QueryWikiConfig"
 	},
 	"APIModules": {
-		"modifyserver": "Miraheze\\ManageWiki\\Api\\ApiModifyServer"
+		"modifyserver": "WikiForge\\ManageWiki\\Api\\ApiModifyServer"
 	},
 	"AvailableRights": [
 		"managewiki",
@@ -32,13 +32,13 @@
 		"managewikisidebar": 0
 	},
 	"SpecialPages": {
-		"DeletedWikis": "Miraheze\\ManageWiki\\Specials\\SpecialDeletedWikis",
-		"ManageWiki": "Miraheze\\ManageWiki\\Specials\\SpecialManageWiki",
-		"ManageWikiDefaultPermissions": "Miraheze\\ManageWiki\\Specials\\SpecialManageWikiDefaultPermissions"
+		"DeletedWikis": "WikiForge\\ManageWiki\\Specials\\SpecialDeletedWikis",
+		"ManageWiki": "WikiForge\\ManageWiki\\Specials\\SpecialManageWiki",
+		"ManageWikiDefaultPermissions": "WikiForge\\ManageWiki\\Specials\\SpecialManageWikiDefaultPermissions"
 	},
 	"JobClasses": {
-		"MWScriptJob": "Miraheze\\ManageWiki\\Jobs\\MWScriptJob",
-		"NamespaceMigrationJob": "Miraheze\\ManageWiki\\Jobs\\NamespaceMigrationJob"
+		"MWScriptJob": "WikiForge\\ManageWiki\\Jobs\\MWScriptJob",
+		"NamespaceMigrationJob": "WikiForge\\ManageWiki\\Jobs\\NamespaceMigrationJob"
 	},
 	"LogActionsHandlers": {
 		"managewiki/delete": "LogFormatter",
@@ -94,39 +94,39 @@
 		"ManageWikiAliases": "ManageWikiAliases.php"
 	},
 	"AutoloadNamespaces": {
-		"Miraheze\\ManageWiki\\": "includes/",
-		"Miraheze\\ManageWiki\\Maintenance\\": "maintenance/"
+		"WikiForge\\ManageWiki\\": "includes/",
+		"WikiForge\\ManageWiki\\Maintenance\\": "maintenance/"
 	},
 	"TestAutoloadNamespaces": {
-		"Miraheze\\ManageWiki\\Tests\\": "tests/phpunit/"
+		"WikiForge\\ManageWiki\\Tests\\": "tests/phpunit/"
 	},
 	"Hooks": {
 		"ContentHandlerForModelID": [
-			"Miraheze\\ManageWiki\\Hooks::onContentHandlerForModelID"
+			"WikiForge\\ManageWiki\\Hooks::onContentHandlerForModelID"
 		],
 		"CreateWikiCreation": [
-			"Miraheze\\ManageWiki\\Hooks::onCreateWikiCreation"
+			"WikiForge\\ManageWiki\\Hooks::onCreateWikiCreation"
 		],
 		"CreateWikiJsonBuilder": [
-			"Miraheze\\ManageWiki\\Hooks::onCreateWikiJsonBuilder"
+			"WikiForge\\ManageWiki\\Hooks::onCreateWikiJsonBuilder"
 		],
 		"CreateWikiStatePrivate": [
-			"Miraheze\\ManageWiki\\Hooks::onCreateWikiStatePrivate"
+			"WikiForge\\ManageWiki\\Hooks::onCreateWikiStatePrivate"
 		],
 		"CreateWikiStatePublic": [
-			"Miraheze\\ManageWiki\\Hooks::onCreateWikiStatePublic"
+			"WikiForge\\ManageWiki\\Hooks::onCreateWikiStatePublic"
 		],
 		"CreateWikiTables": [
-			"Miraheze\\ManageWiki\\Hooks::onCreateWikiTables"
+			"WikiForge\\ManageWiki\\Hooks::onCreateWikiTables"
 		],
 		"GetPreferences": [
-			"Miraheze\\ManageWiki\\Hooks::onGetPreferences"
+			"WikiForge\\ManageWiki\\Hooks::onGetPreferences"
 		],
 		"LoadExtensionSchemaUpdates": [
-			"Miraheze\\ManageWiki\\Hooks::fnManageWikiSchemaUpdates"
+			"WikiForge\\ManageWiki\\Hooks::fnManageWikiSchemaUpdates"
 		],
 		"SidebarBeforeOutput": [
-			"Miraheze\\ManageWiki\\Hooks::fnNewSidebarItem"
+			"WikiForge\\ManageWiki\\Hooks::fnNewSidebarItem"
 		]
 	},
 	"ResourceModules": {
@@ -269,6 +269,6 @@
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"
 	],
-	"callback": "Miraheze\\ManageWiki\\Hooks::onRegistration",
+	"callback": "WikiForge\\ManageWiki\\Hooks::onRegistration",
 	"manifest_version": 2
 }

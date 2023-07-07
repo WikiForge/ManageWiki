@@ -1,6 +1,6 @@
 <?php
 
-namespace Miraheze\ManageWiki\Helpers;
+namespace WikiForge\ManageWiki\Helpers;
 
 use Linker;
 use MediaWiki\MediaWikiServices;

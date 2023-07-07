@@ -1,6 +1,6 @@
 <?php
 
-namespace Miraheze\ManageWiki\FormFactory;
+namespace WikiForge\ManageWiki\FormFactory;
 
 use Config;
 use ExtensionProcessor;
@@ -10,14 +10,14 @@ use IContextSource;
 use Linker;
 use ManualLogEntry;
 use MediaWiki\MediaWikiServices;
-use Miraheze\CreateWiki\RemoteWiki;
-use Miraheze\ManageWiki\Helpers\ManageWikiExtensions;
-use Miraheze\ManageWiki\Helpers\ManageWikiNamespaces;
-use Miraheze\ManageWiki\Helpers\ManageWikiPermissions;
-use Miraheze\ManageWiki\Helpers\ManageWikiRequirements;
-use Miraheze\ManageWiki\Helpers\ManageWikiSettings;
-use Miraheze\ManageWiki\Helpers\ManageWikiTypes;
-use Miraheze\ManageWiki\ManageWiki;
+use WikiForge\CreateWiki\RemoteWiki;
+use WikiForge\ManageWiki\Helpers\ManageWikiExtensions;
+use WikiForge\ManageWiki\Helpers\ManageWikiNamespaces;
+use WikiForge\ManageWiki\Helpers\ManageWikiPermissions;
+use WikiForge\ManageWiki\Helpers\ManageWikiRequirements;
+use WikiForge\ManageWiki\Helpers\ManageWikiSettings;
+use WikiForge\ManageWiki\Helpers\ManageWikiTypes;
+use WikiForge\ManageWiki\ManageWiki;
 use MWException;
 use SpecialPage;
 use User;

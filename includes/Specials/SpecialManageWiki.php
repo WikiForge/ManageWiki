@@ -1,17 +1,17 @@
 <?php
 
-namespace Miraheze\ManageWiki\Specials;
+namespace WikiForge\ManageWiki\Specials;
 
 use Config;
 use Html;
 use HTMLForm;
 use MediaWiki\MediaWikiServices;
-use Miraheze\CreateWiki\RemoteWiki;
-use Miraheze\CreateWiki\WikiManager;
-use Miraheze\ManageWiki\FormFactory\ManageWikiFormFactory;
-use Miraheze\ManageWiki\Helpers\ManageWikiNamespaces;
-use Miraheze\ManageWiki\Helpers\ManageWikiPermissions;
-use Miraheze\ManageWiki\ManageWiki;
+use WikiForge\CreateWiki\RemoteWiki;
+use WikiForge\CreateWiki\WikiManager;
+use WikiForge\ManageWiki\FormFactory\ManageWikiFormFactory;
+use WikiForge\ManageWiki\Helpers\ManageWikiNamespaces;
+use WikiForge\ManageWiki\Helpers\ManageWikiPermissions;
+use WikiForge\ManageWiki\ManageWiki;
 use OOUI\FieldLayout;
 use OOUI\SearchInputWidget;
 use SpecialPage;

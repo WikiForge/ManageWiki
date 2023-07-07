@@ -1,12 +1,12 @@
 <?php
 
-namespace Miraheze\ManageWiki;
+namespace WikiForge\ManageWiki;
 
 use DatabaseUpdater;
 use MediaWiki\MediaWikiServices;
-use Miraheze\ManageWiki\Helpers\ManageWikiExtensions;
-use Miraheze\ManageWiki\Helpers\ManageWikiNamespaces;
-use Miraheze\ManageWiki\Helpers\ManageWikiPermissions;
+use WikiForge\ManageWiki\Helpers\ManageWikiExtensions;
+use WikiForge\ManageWiki\Helpers\ManageWikiNamespaces;
+use WikiForge\ManageWiki\Helpers\ManageWikiPermissions;
 use SpecialPage;
 use TextContentHandler;
 use User;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Miraheze\ManageWiki\Specials;
+namespace WikiForge\ManageWiki\Specials;
 
-use Miraheze\ManageWiki\Helpers\ManageWikiDeletedWikiPager;
+use WikiForge\ManageWiki\Helpers\ManageWikiDeletedWikiPager;
 use SpecialPage;
 
 class SpecialDeletedWikis extends SpecialPage {

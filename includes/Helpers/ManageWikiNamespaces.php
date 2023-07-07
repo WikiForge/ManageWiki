@@ -1,11 +1,11 @@
 <?php
 
-namespace Miraheze\ManageWiki\Helpers;
+namespace WikiForge\ManageWiki\Helpers;
 
 use Config;
 use MediaWiki\MediaWikiServices;
-use Miraheze\CreateWiki\CreateWikiJson;
-use Miraheze\ManageWiki\Jobs\NamespaceMigrationJob;
+use WikiForge\CreateWiki\CreateWikiJson;
+use WikiForge\ManageWiki\Jobs\NamespaceMigrationJob;
 use SpecialPage;
 use Wikimedia\Rdbms\MaintainableDBConnRef;
 

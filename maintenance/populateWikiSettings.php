@@ -1,6 +1,6 @@
 <?php
 
-namespace Miraheze\ManageWiki\Maintenance;
+namespace WikiForge\ManageWiki\Maintenance;
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
@@ -10,7 +10,7 @@ require_once "$IP/maintenance/Maintenance.php";
 
 use Maintenance;
 use MediaWiki\MediaWikiServices;
-use Miraheze\ManageWiki\Helpers\ManageWikiSettings;
+use WikiForge\ManageWiki\Helpers\ManageWikiSettings;
 
 class PopulateWikiSettings extends Maintenance {
 	public function __construct() {
