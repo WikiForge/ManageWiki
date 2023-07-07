@@ -4,8 +4,8 @@ namespace WikiForge\ManageWiki;
 
 use DateTimeZone;
 use MediaWiki\MediaWikiServices;
-use WikiForge\CreateWiki\RemoteWiki;
 use User;
+use WikiForge\CreateWiki\RemoteWiki;
 
 class ManageWiki {
 	public static function checkSetup( string $module, bool $verbose = false, $out = null ) {

@@ -4,8 +4,8 @@ namespace WikiForge\ManageWiki\Helpers;
 
 use Config;
 use MediaWiki\MediaWikiServices;
-use WikiForge\CreateWiki\CreateWikiJson;
 use User;
+use WikiForge\CreateWiki\CreateWikiJson;
 use Wikimedia\Rdbms\MaintainableDBConnRef;
 
 /**

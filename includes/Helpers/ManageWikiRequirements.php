@@ -3,9 +3,9 @@
 namespace WikiForge\ManageWiki\Helpers;
 
 use MediaWiki\MediaWikiServices;
-use WikiForge\CreateWiki\RemoteWiki;
 use RequestContext;
 use SiteStats;
+use WikiForge\CreateWiki\RemoteWiki;
 
 /**
  * Helper class for de-centralising requirement checking

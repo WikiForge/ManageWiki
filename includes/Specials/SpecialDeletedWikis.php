@@ -2,8 +2,8 @@
 
 namespace WikiForge\ManageWiki\Specials;
 
-use WikiForge\ManageWiki\Helpers\ManageWikiDeletedWikiPager;
 use SpecialPage;
+use WikiForge\ManageWiki\Helpers\ManageWikiDeletedWikiPager;
 
 class SpecialDeletedWikis extends SpecialPage {
 	public function __construct() {

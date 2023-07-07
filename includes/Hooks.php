@@ -4,12 +4,12 @@ namespace WikiForge\ManageWiki;
 
 use DatabaseUpdater;
 use MediaWiki\MediaWikiServices;
-use WikiForge\ManageWiki\Helpers\ManageWikiExtensions;
-use WikiForge\ManageWiki\Helpers\ManageWikiNamespaces;
-use WikiForge\ManageWiki\Helpers\ManageWikiPermissions;
 use SpecialPage;
 use TextContentHandler;
 use User;
+use WikiForge\ManageWiki\Helpers\ManageWikiExtensions;
+use WikiForge\ManageWiki\Helpers\ManageWikiNamespaces;
+use WikiForge\ManageWiki\Helpers\ManageWikiPermissions;
 use Wikimedia\Rdbms\DBConnRef;
 
 class Hooks {

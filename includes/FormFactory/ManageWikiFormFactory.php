@@ -7,11 +7,11 @@ use Html;
 use HTMLForm;
 use IContextSource;
 use MediaWiki\MediaWikiServices;
+use MWException;
+use OutputPage;
 use WikiForge\CreateWiki\RemoteWiki;
 use WikiForge\ManageWiki\Helpers\ManageWikiOOUIForm;
 use WikiForge\ManageWiki\ManageWiki;
-use MWException;
-use OutputPage;
 use Wikimedia\Rdbms\DBConnRef;
 
 class ManageWikiFormFactory {
