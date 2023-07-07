@@ -9,13 +9,13 @@ use Html;
 use HTMLForm;
 use ManualLogEntry;
 use MediaWiki\MediaWikiServices;
+use SpecialPage;
+use UserGroupMembership;
 use WikiForge\CreateWiki\RemoteWiki;
 use WikiForge\ManageWiki\FormFactory\ManageWikiFormFactory;
 use WikiForge\ManageWiki\Helpers\ManageWikiPermissions;
 use WikiForge\ManageWiki\Hooks;
 use WikiForge\ManageWiki\ManageWiki;
-use SpecialPage;
-use UserGroupMembership;
 
 class SpecialManageWikiDefaultPermissions extends SpecialPage {
 	/** @var Config */

@@ -4,9 +4,9 @@ namespace WikiForge\ManageWiki\Helpers;
 
 use Config;
 use MediaWiki\MediaWikiServices;
+use SpecialPage;
 use WikiForge\CreateWiki\CreateWikiJson;
 use WikiForge\ManageWiki\Jobs\NamespaceMigrationJob;
-use SpecialPage;
 use Wikimedia\Rdbms\MaintainableDBConnRef;
 
 /**

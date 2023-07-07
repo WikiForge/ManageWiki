@@ -6,16 +6,16 @@ use Config;
 use Html;
 use HTMLForm;
 use MediaWiki\MediaWikiServices;
+use OOUI\FieldLayout;
+use OOUI\SearchInputWidget;
+use SpecialPage;
+use UserGroupMembership;
 use WikiForge\CreateWiki\RemoteWiki;
 use WikiForge\CreateWiki\WikiManager;
 use WikiForge\ManageWiki\FormFactory\ManageWikiFormFactory;
 use WikiForge\ManageWiki\Helpers\ManageWikiNamespaces;
 use WikiForge\ManageWiki\Helpers\ManageWikiPermissions;
 use WikiForge\ManageWiki\ManageWiki;
-use OOUI\FieldLayout;
-use OOUI\SearchInputWidget;
-use SpecialPage;
-use UserGroupMembership;
 
 class SpecialManageWiki extends SpecialPage {
 	/** @var Config */

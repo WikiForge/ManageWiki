@@ -10,6 +10,10 @@ use IContextSource;
 use Linker;
 use ManualLogEntry;
 use MediaWiki\MediaWikiServices;
+use MWException;
+use SpecialPage;
+use User;
+use UserGroupMembership;
 use WikiForge\CreateWiki\RemoteWiki;
 use WikiForge\ManageWiki\Helpers\ManageWikiExtensions;
 use WikiForge\ManageWiki\Helpers\ManageWikiNamespaces;
@@ -18,10 +22,6 @@ use WikiForge\ManageWiki\Helpers\ManageWikiRequirements;
 use WikiForge\ManageWiki\Helpers\ManageWikiSettings;
 use WikiForge\ManageWiki\Helpers\ManageWikiTypes;
 use WikiForge\ManageWiki\ManageWiki;
-use MWException;
-use SpecialPage;
-use User;
-use UserGroupMembership;
 use Wikimedia\Rdbms\DBConnRef;
 
 class ManageWikiFormFactoryBuilder {

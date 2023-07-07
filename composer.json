@@ -1,5 +1,5 @@
 {
-	"name": "miraheze/manage-wiki",
+	"name": "wikiforge/manage-wiki",
 	"type": "mediawiki-extension",
 	"description": "Allows people to manage wikis through a web interface.",
 	"homepage": "https://www.mediawiki.org/wiki/Extension:ManageWiki",
@@ -22,7 +22,7 @@
 		}
 	],
 	"support": {
-		"issues": "https://phabricator.miraheze.org/tag/managewiki/",
+		"issues": "https://support.wikiforge.net/tag/managewiki/",
 		"wiki": "https://www.mediawiki.org/wiki/Extension:ManageWiki"
 	},
 	"require": {

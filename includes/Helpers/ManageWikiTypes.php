@@ -4,9 +4,9 @@ namespace WikiForge\ManageWiki\Helpers;
 
 use ContentHandler;
 use MediaWiki\MediaWikiServices;
-use WikiForge\ManageWiki\ManageWiki;
 use Status;
 use UserGroupMembership;
+use WikiForge\ManageWiki\ManageWiki;
 
 class ManageWikiTypes {
 	public static function process( $config, $disabled, $groupList, $module, $options, $value, $name = false, $overrideDefault = false, $type = false ) {

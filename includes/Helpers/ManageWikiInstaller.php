@@ -5,9 +5,9 @@ namespace WikiForge\ManageWiki\Helpers;
 use Exception;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Shell\Shell;
-use WikiForge\ManageWiki\Jobs\MWScriptJob;
 use MWException;
 use Title;
+use WikiForge\ManageWiki\Jobs\MWScriptJob;
 
 class ManageWikiInstaller {
 	public static function process( string $dbname, array $actions, bool $install = true ) {
