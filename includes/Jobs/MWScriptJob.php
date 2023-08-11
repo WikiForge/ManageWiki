@@ -36,7 +36,7 @@ class MWScriptJob extends Job {
 		if ( version_compare( MW_VERSION, '1.40', '>=' ) ) {
 			$scriptOptions = [ 'wrapper' => MW_INSTALL_PATH . '/maintenance/run.php' ];
 		}
-	
+
 		$result = Shell::makeScriptCommand(
 			$this->params['script'],
 			$scriptParams,
