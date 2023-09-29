@@ -127,7 +127,16 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 		$logID = $logEntry->insert();
 		$logEntry->publish( $logID );
 
-		$out->addHTML( Html::successBox( $this->msg( 'managewiki-success' )->escaped() ) );
+		$out->addHTML(
+			Html::successBox(
+				Html::element(
+					'p',
+					[],
+					$this->msg( 'managewiki-success' )->escaped()
+				),
+				'mw-notify-success'
+			)
+			);
 
 		return true;
 	}
@@ -149,6 +158,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 			'mediawiki.widgets.TagMultiselectWidget.styles',
 		] );
 		$out->addModuleStyles( [ 'oojs-ui-widgets.styles' ] );
+		$out->addModules( [ 'mediawiki.special.userrights' ] );
 
 		$remoteWiki = new RemoteWiki( $this->config->get( 'CreateWikiGlobalWiki' ) );
 
