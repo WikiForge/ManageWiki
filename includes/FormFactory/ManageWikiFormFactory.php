@@ -121,7 +121,7 @@ class ManageWikiFormFactory {
 				Html::element(
 					'p',
 					[],
-					wfMessage( 'managewiki-success' )->escaped()
+					wfMessage( 'managewiki-success' )->plain()
 				),
 				'mw-notify-success'
 			)
