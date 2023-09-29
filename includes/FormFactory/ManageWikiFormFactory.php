@@ -116,6 +116,15 @@ class ManageWikiFormFactory {
 			return null;
 		}
 
-		$out->addHTML( Html::successBox( wfMessage( 'managewiki-success' )->escaped() ) );
+		$out->addHTML(
+			Html::successBox(
+				Html::element(
+					'p',
+					[],
+					wfMessage( 'managewiki-success' )->escaped()
+				),
+				'mw-notify-success'
+			)
+		);
 	}
 }
