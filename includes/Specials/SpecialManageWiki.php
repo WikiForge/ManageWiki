@@ -80,11 +80,11 @@ class SpecialManageWiki extends SpecialPage {
 	public function showInputBox() {
 		$formDescriptor = [
 			'info' => [
-				'default' => 'managewiki-core-info',
+				'default' => $this->msg( 'managewiki-core-info' )->text(),
 				'type' => 'info',
 			],
 			'dbname' => [
-				'label-message' => $this->msg( 'managewiki-label-dbname' )->text(),
+				'label-message' => 'managewiki-label-dbname',
 				'type' => 'text',
 				'size' => 20,
 				'required' => true,
