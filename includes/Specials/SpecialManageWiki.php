@@ -198,6 +198,7 @@ class SpecialManageWiki extends SpecialPage {
 
 		$selectForm = HTMLForm::factory( 'ooui', $hidden + $selector, $this->getContext(), 'selector' );
 		$selectForm->setMethod( 'post' )->setFormIdentifier( 'selector' )->setSubmitCallback( [ $this, 'reusableFormSubmission' ] )->prepareForm()->show();
+		$selectForm->setWrapperLegendMsg( 'managewiki-{$module}-select' );
 
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
 		if ( $permissionManager->userHasRight( $this->getContext()->getUser(), 'managewiki' ) ) {
