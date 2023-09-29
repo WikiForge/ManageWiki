@@ -103,7 +103,16 @@ class ManageWikiFormFactory {
 				}
 			}
 
-			$out->addHTML( Html::errorBox( 'The following errors occurred:<br>' . implode( '<br>', $errorOut ) ) );
+			$out->addHTML(
+				Html::warningBox(
+					Html::element(
+						'p',
+						[],
+						'The following errors occurred:<br>' . implode( '<br>', $errorOut )
+					),
+					'mw-notify-error'
+				)
+			);
 			return null;
 		}
 
