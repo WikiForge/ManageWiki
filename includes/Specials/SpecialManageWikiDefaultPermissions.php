@@ -48,6 +48,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 		$globalwiki = $this->config->get( 'CreateWikiGlobalWiki' );
 
 		$out = $this->getOutput();
+		$out->addModules( [ 'mediawiki.special.userrights' ] );
 
 		if ( $globalwiki == $this->config->get( 'DBname' ) ) {
 			$mwPermissions = new ManageWikiPermissions( 'default' );
@@ -102,7 +103,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 
 			$resetDescriptor = [];
 
-			$createDescriptor['info'] = [
+			$resetDescriptor['info'] = [
 				'type' => 'info',
 				'default' => $this->msg( 'managewiki-permissions-resetgroups-header' )->text(),
 			];
