@@ -118,6 +118,7 @@ class SpecialManageWiki extends SpecialPage {
 			] );
 
 			$out->addModuleStyles( [ 'oojs-ui-widgets.styles' ] );
+			$out->addModules( [ 'mediawiki.special.userrights' ] );
 		}
 
 		if ( !$special ) {
