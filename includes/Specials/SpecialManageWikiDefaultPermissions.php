@@ -58,9 +58,12 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 				$craftedGroups[UserGroupMembership::getGroupName( $group )] = $group;
 			}
 
-			$out->addWikiMsg( 'managewiki-header-permissions' );
-
 			$groupSelector = [];
+
+			$groupSelector['info'] = [
+				'default' => $this->msg( 'managewikidefaultpermissions-select-info' )->text(),
+				'type' => 'info',
+			];
 
 			$groupSelector['groups'] = [
 				'label-message' => 'managewiki-permissions-select',
@@ -69,10 +72,16 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 			];
 
 			$selectForm = HTMLForm::factory( 'ooui', $groupSelector, $this->getContext(), 'groupSelector' );
+			$selectForm->setWrapperLegendMsg( 'managewiki-permissions-select-header' );
 			$selectForm->setMethod( 'post' )->setFormIdentifier( 'groupSelector' )->setSubmitCallback( [ $this, 'onSubmitRedirectToPermissionsPage' ] )->prepareForm()->show();
 
 			if ( $canChangeDefaultPerms ) {
 				$createDescriptor = [];
+
+				$createDescriptor['info'] = [
+					'type' => 'info',
+					'default' => $this->msg( 'managewikidefaultpermissions-create-info' )->text(),
+				];
 
 				$createDescriptor['groups'] = [
 					'type' => 'text',
@@ -81,6 +90,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 				];
 
 				$createForm = HTMLForm::factory( 'ooui', $createDescriptor, $this->getContext() );
+				$createForm->setWrapperLegendMsg( 'managewiki-permissions-create-header' );
 				$createForm->setMethod( 'post' )->setFormIdentifier( 'createForm' )->setSubmitCallback( [ $this, 'onSubmitRedirectToPermissionsPage' ] )->prepareForm()->show();
 			}
 		} elseif ( !( $globalwiki == $this->config->get( 'DBname' ) ) && !$canChangeDefaultPerms ) {
@@ -89,9 +99,16 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 
 		if ( !( $globalwiki == $this->config->get( 'DBname' ) ) && $canChangeDefaultPerms ) {
 			$out->setPageTitle( $this->msg( 'managewiki-permissions-resetgroups-title' )->plain() );
-			$out->addWikiMsg( 'managewiki-permissions-resetgroups-header' );
 
-			$resetForm = HTMLForm::factory( 'ooui', [], $this->getContext() );
+			$resetDescriptor = [];
+
+			$createDescriptor['info'] = [
+				'type' => 'info',
+				'default' => $this->msg( 'managewiki-permissions-resetgroups-header' )->text(),
+			];
+
+			$resetForm = HTMLForm::factory( 'ooui', $resetDescriptor, $this->getContext() );
+			$resetForm->setWrapperLegendMsg( 'managewikidefaultpermissions-resetgroups-header' );
 			$resetForm->setMethod( 'post' )->setFormIdentifier( 'resetform' )->setSubmitTextMsg( 'managewiki-permissions-resetgroups' )->setSubmitDestructive()->setSubmitCallback( [ $this, 'onSubmitResetForm' ] )->prepareForm()->show();
 		}
 	}
