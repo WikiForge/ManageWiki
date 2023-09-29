@@ -132,7 +132,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 				Html::element(
 					'p',
 					[],
-					$this->msg( 'managewiki-success' )->escaped()
+					$this->msg( 'managewiki-success' )->plain()
 				),
 				'mw-notify-success'
 			)
