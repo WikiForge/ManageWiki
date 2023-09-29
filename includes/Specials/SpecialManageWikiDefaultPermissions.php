@@ -105,7 +105,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 
 			$resetDescriptor['info'] = [
 				'type' => 'info',
-				'default' => $this->msg( 'managewiki-permissions-resetgroups-header' )->plain(),
+				'default' => $this->msg( 'managewiki-permissions-resetgroups-header' )->parse(),
 			];
 
 			$resetForm = HTMLForm::factory( 'ooui', $resetDescriptor, $this->getContext() );
