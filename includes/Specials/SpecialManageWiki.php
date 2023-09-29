@@ -79,6 +79,10 @@ class SpecialManageWiki extends SpecialPage {
 
 	public function showInputBox() {
 		$formDescriptor = [
+			'info' => [
+				'label-message' => 'managewiki-core-info',
+				'type' => 'info',
+			],
 			'dbname' => [
 				'label-message' => 'managewiki-label-dbname',
 				'type' => 'text',
@@ -88,6 +92,7 @@ class SpecialManageWiki extends SpecialPage {
 		];
 
 		$htmlForm = HTMLForm::factory( 'ooui', $formDescriptor, $this->getContext(), 'searchForm' );
+		$htmlForm->setWrapperLegendMsg( 'managewiki-core-header' );
 		$htmlForm->setMethod( 'post' )
 			->setSubmitCallback( [ $this, 'onSubmitRedirectToWikiForm' ] )
 			->prepareForm()
@@ -190,6 +195,11 @@ class SpecialManageWiki extends SpecialPage {
 			'default' => $module
 		];
 
+		$selector['info'] = [
+			'type' => 'info',
+			'label-message' => "managewiki-{$module}-select-info",
+		];
+
 		$selector['out'] = [
 			'type' => 'select',
 			'label-message' => "managewiki-{$module}-select",
@@ -197,17 +207,23 @@ class SpecialManageWiki extends SpecialPage {
 		];
 
 		$selectForm = HTMLForm::factory( 'ooui', $hidden + $selector, $this->getContext(), 'selector' );
+		$selectForm->setWrapperLegendMsg( 'managewiki-'. $module .'-select-header' );
 		$selectForm->setMethod( 'post' )->setFormIdentifier( 'selector' )->setSubmitCallback( [ $this, 'reusableFormSubmission' ] )->prepareForm()->show();
-		$selectForm->setWrapperLegendMsg( 'managewiki-{$module}-select' );
 
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
 		if ( $permissionManager->userHasRight( $this->getContext()->getUser(), 'managewiki' ) ) {
+			$create['info'] = [
+				'type' => 'info',
+				'label-message' => "managewiki-{$module}-select-info",
+			];
+
 			$create['out'] = [
 				'type' => 'text',
 				'label-message' => "managewiki-{$module}-create",
 			];
 
 			$createForm = HTMLForm::factory( 'ooui', $hidden + $create, $this->getContext(), 'create' );
+			$createForm->setWrapperLegendMsg( 'managewiki-'. $module .'-create-header' );
 			$createForm->setMethod( 'post' )->setFormIdentifier( 'create' )->setSubmitCallback( [ $this, 'reusableFormSubmission' ] )->setSubmitText( $this->msg( "managewiki-{$module}-create-submit" )->plain() )->prepareForm()->show();
 		}
 	}
