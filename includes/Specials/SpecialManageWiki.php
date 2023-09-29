@@ -197,7 +197,7 @@ class SpecialManageWiki extends SpecialPage {
 
 		$selector['info'] = [
 			'type' => 'info',
-			'label-message' => "managewiki-{$module}-select-info",
+			'default' => $this->msg( "managewiki-{$module}-select-info" )->text(),
 		];
 
 		$selector['out'] = [
@@ -207,14 +207,14 @@ class SpecialManageWiki extends SpecialPage {
 		];
 
 		$selectForm = HTMLForm::factory( 'ooui', $hidden + $selector, $this->getContext(), 'selector' );
-		$selectForm->setWrapperLegendMsg( 'managewiki-'. $module .'-select-header' );
+		$selectForm->setWrapperLegendMsg( "managewiki-{$module}-select-header" );
 		$selectForm->setMethod( 'post' )->setFormIdentifier( 'selector' )->setSubmitCallback( [ $this, 'reusableFormSubmission' ] )->prepareForm()->show();
 
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
 		if ( $permissionManager->userHasRight( $this->getContext()->getUser(), 'managewiki' ) ) {
 			$create['info'] = [
 				'type' => 'info',
-				'label-message' => "managewiki-{$module}-select-info",
+				'default' => $this->msg( "managewiki-{$module}-create-info" )->text(),
 			];
 
 			$create['out'] = [
@@ -223,7 +223,7 @@ class SpecialManageWiki extends SpecialPage {
 			];
 
 			$createForm = HTMLForm::factory( 'ooui', $hidden + $create, $this->getContext(), 'create' );
-			$createForm->setWrapperLegendMsg( 'managewiki-'. $module .'-create-header' );
+			$createForm->setWrapperLegendMsg( "managewiki-{$module}-create-header" );
 			$createForm->setMethod( 'post' )->setFormIdentifier( 'create' )->setSubmitCallback( [ $this, 'reusableFormSubmission' ] )->setSubmitText( $this->msg( "managewiki-{$module}-create-submit" )->plain() )->prepareForm()->show();
 		}
 	}
