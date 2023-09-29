@@ -105,7 +105,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 
 			$resetDescriptor['info'] = [
 				'type' => 'info',
-				'default' => $this->msg( 'managewiki-permissions-resetgroups-header' )->text(),
+				'default' => $this->msg( 'managewiki-permissions-resetgroups-header' )->plain(),
 			];
 
 			$resetForm = HTMLForm::factory( 'ooui', $resetDescriptor, $this->getContext() );
@@ -156,7 +156,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 			)
 			);
 
-		return true;
+		return false;
 	}
 
 	public static function validateNewGroupName( $newGroup, $nullForm ) {
