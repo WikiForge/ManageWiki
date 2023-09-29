@@ -80,11 +80,11 @@ class SpecialManageWiki extends SpecialPage {
 	public function showInputBox() {
 		$formDescriptor = [
 			'info' => [
-				'label-message' => 'managewiki-core-info',
+				'default' => 'managewiki-core-info',
 				'type' => 'info',
 			],
 			'dbname' => [
-				'label-message' => 'managewiki-label-dbname',
+				'label-message' => $this->msg( 'managewiki-label-dbname' )->text(),
 				'type' => 'text',
 				'size' => 20,
 				'required' => true,
@@ -124,10 +124,6 @@ class SpecialManageWiki extends SpecialPage {
 
 			$out->addModuleStyles( [ 'oojs-ui-widgets.styles' ] );
 			$out->addModules( [ 'mediawiki.special.userrights' ] );
-		}
-
-		if ( !$special ) {
-			$out->addWikiMsg( "managewiki-header-{$module}", $wiki );
 		}
 
 		$options = [];
