@@ -42,7 +42,11 @@ class SpecialManageWiki extends SpecialPage {
 			$module = 'core';
 		}
 
-		$out->setPageTitle( $this->msg( 'managewiki-link-' . $module )->text() );
+		if ( !$this->getContext()getUser()->isAllowed( 'managewiki-' . $module ) ) {
+			$out->setPageTitle( $this->msg( 'managewiki-link-' . $module )->text() );
+		} else {
+			$out->setPageTitle( $this->msg( 'managewiki-link-' . $module . '-norights' )->text() );
+		}
 
 		$additional = $par[1] ?? '';
 		$filtered = $par[2] ?? $par[1] ?? '';
