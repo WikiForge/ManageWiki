@@ -137,7 +137,7 @@
 	"managewiki-permissions-group": "Below you can allow how this user group can assign/unassign other user groups.",
 	"managewiki-permissions-removeall": "Can remove from others",
 	"managewiki-permissions-removeself": "Can remove from self",
-	"managewiki-permissions-resetgroups-header": "<strong>WARNING</strong>: You are about to reset this wiki's user group configuration to the defaults! Proceed only if you are sure you wish to do this. This action will not affect anything other than user groups.",
+	"managewiki-permissions-resetgroups-header": "'''WARNING''': You are about to reset this wiki's user group configuration to the defaults! Proceed only if you are sure you wish to do this. This action will not affect anything other than user groups.",
 	"managewiki-permissions-resetgroups-title": "Reset this wiki's groups to the defaults",
 	"managewiki-permissions-resetgroups": "Reset all groups to default",
 	"managewiki-permissions-select": "Select a group",
@@ -183,8 +183,14 @@
 	"permissions-delete": "Delete",
 	"permissions-group": "Group assignments",
 	"permissions-unassigned": "Unassigned permissions",
+	"right-remotewiki": "Remotely manage a wiki's core settings",
 	"right-managewiki-editdefault": "Manage default group permissions",
 	"right-managewiki-restricted": "Manage restricted wiki settings",
 	"right-managewiki": "Manage wiki settings",
+	"right-managewiki-core": "Manage core settings for this wiki",
+	"right-managewiki-extensions": "Enable and disable extensions for this wiki",
+	"right-managewiki-namespaces": "Create, delete, and manage namespaces for this wiki",
+	"right-managewiki-permissions": "Create, delete, and manage user groups on this wiki",
+	"right-managewiki-settings": "Manage advanced settings for this wiki",
 	"settings-other": "Other"
 }
