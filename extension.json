@@ -1,6 +1,7 @@
 {
 	"name": "ManageWiki",
 	"author": [
+		"Agent Isai"
 		"Southparkfan",
 		"John Lewis",
 		"MacFan4000",
@@ -24,14 +25,13 @@
 		"modifyserver": "WikiForge\\ManageWiki\\Api\\ApiModifyServer"
 	},
 	"AvailableRights": [
-		"managewiki",
 		"managewiki-core",
+		"managewiki-editdefault",
 		"managewiki-extensions",
 		"managewiki-namespaces",
 		"managewiki-permissions",
-		"managewiki-settings",
-		"managewiki-editdefault",
-		"managewiki-restricted"
+		"managewiki-restricted",
+		"managewiki-settings"
 	],
 	"DefaultUserOptions": {
 		"managewikisidebar": 0
