@@ -25,6 +25,11 @@
 	},
 	"AvailableRights": [
 		"managewiki",
+		"managewiki-core",
+		"managewiki-extensions",
+		"managewiki-namespaces",
+		"managewiki-permissions",
+		"managewiki-settings",
 		"managewiki-editdefault",
 		"managewiki-restricted"
 	],

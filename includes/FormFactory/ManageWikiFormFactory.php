@@ -47,7 +47,7 @@ class ManageWikiFormFactory {
 			->getMainLB( $config->get( 'CreateWikiDatabase' ) )
 			->getMaintenanceConnectionRef( DB_PRIMARY, [], $config->get( 'CreateWikiDatabase' ) );
 
-		$ceMW = ManageWiki::checkPermission( $remoteWiki, $context->getUser() );
+		$ceMW = ManageWiki::checkPermission( $remoteWiki, $context->getUser(), 'managewiki-' . $module );
 
 		$formDescriptor = $this->getFormDescriptor( $module, $wiki, $ceMW, $context, $remoteWiki, $config, $special, $filtered );
 
