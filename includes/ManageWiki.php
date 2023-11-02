@@ -26,7 +26,7 @@ class ManageWiki {
 		return array_keys( MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'managewiki' )->get( 'ManageWiki' ), true );
 	}
 
-	public static function checkPermission( RemoteWiki $rm, User $user, string $perm = "" ) {
+	public static function checkPermission( RemoteWiki $rm, User $user, string $perm ) {
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
 		if ( $rm->isLocked() && !$permissionManager->userHasRight( $user, 'managewiki-restricted' ) ) {
 			return false;
