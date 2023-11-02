@@ -407,7 +407,7 @@ class ManageWikiFormFactoryBuilder {
 					];
 				}
 
-				$varName = " (\${$name}))";
+				$varName = " (\${$name})";
 				if ( isset( $set['associativeKey'] ) ) {
 					$varName = " (\${$name})['{$set['associativeKey']}'])";
 				}
