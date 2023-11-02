@@ -32,7 +32,7 @@ class ManageWiki {
 			return false;
 		}
 
-		if ( !$permissionManager->userHasRight( $user, $perm ) ) {
+		if ( !$permissionManager->userHasRight( $user, 'managewiki-' . $perm ) ) {
 			return false;
 		}
 
