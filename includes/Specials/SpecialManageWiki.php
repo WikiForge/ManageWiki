@@ -211,7 +211,7 @@ class SpecialManageWiki extends SpecialPage {
 		$selectForm->setMethod( 'post' )->setFormIdentifier( 'selector' )->setSubmitCallback( [ $this, 'reusableFormSubmission' ] )->prepareForm()->show();
 
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
-		if ( $permissionManager->userHasRight( $this->getContext()->getUser(), 'managewiki' ) ) {
+		if ( $permissionManager->userHasRight( $this->getContext()->getUser(), 'managewiki-' . $module ) ) {
 			$create['info'] = [
 				'type' => 'info',
 				'default' => $this->msg( "managewiki-{$module}-create-info" )->text(),
