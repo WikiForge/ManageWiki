@@ -113,16 +113,28 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 		if ( !( $globalwiki == $this->config->get( 'DBname' ) ) && $canModify ) {
 			$out->setPageTitle( $this->msg( 'managewiki-permissions-resetgroups-title' )->plain() );
 
-			$resetDescriptor = [];
+			$resetPermissionsDescriptor = [];
 
-			$resetDescriptor['info'] = [
+			$resetPermissionsDescriptor['info'] = [
 				'type' => 'info',
 				'default' => $this->msg( 'managewiki-permissions-resetgroups-header' ),
 			];
 
-			$resetForm = HTMLForm::factory( 'ooui', $resetDescriptor, $this->getContext() );
-			$resetForm->setWrapperLegendMsg( 'managewikidefaultpermissions-resetgroups-header' );
-			$resetForm->setMethod( 'post' )->setFormIdentifier( 'resetform' )->setSubmitTextMsg( 'managewiki-permissions-resetgroups' )->setSubmitDestructive()->setSubmitCallback( [ $this, 'onSubmitResetForm' ] )->prepareForm()->show();
+			$resetPermissionsForm = HTMLForm::factory( 'ooui', $resetPermissionsDescriptor, $this->getContext() );
+			$resetPermissionsForm->setWrapperLegendMsg( 'managewikidefaultpermissions-resetgroups-header' );
+			$resetPermissionsForm->setMethod( 'post' )->setFormIdentifier( 'resetpermissionsform' )->setSubmitTextMsg( 'managewiki-permissions-resetgroups' )->setSubmitDestructive()->setSubmitCallback( [ $this, 'onSubmitPermissionsResetForm' ] )->prepareForm()->show();
+
+			$resetSettingsDescriptor = [];
+
+			$resetSettingsDescriptor['info'] = [
+				'type' => 'info',
+				'default' => $this->msg( 'managewiki-permissions-resetsettings-header' ),
+			];
+
+			$resetSettingsForm = HTMLForm::factory( 'ooui', $resetSettingsDescriptor, $this->getContext() );
+			$resetSettingsForm->setWrapperLegendMsg( 'managewikidefaultpermissions-resetsettings-header' );
+			$resetSettingsForm->setMethod( 'post' )->setFormIdentifier( 'resetsettingsform' )->setSubmitTextMsg( 'managewiki-permissions-resetsettings' )->setSubmitDestructive()->setSubmitCallback( [ $this, 'onSubmitSettingsResetForm' ] )->prepareForm()->show();
+
 		}
 	}
 
@@ -132,7 +144,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 		return true;
 	}
 
-	public function onSubmitResetForm( $formData ) {
+	public function onSubmitPermissionsResetForm( $formData ) {
 		$out = $this->getOutput();
 
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()
@@ -170,6 +182,43 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 
 		return false;
 	}
+
+	public function onSubmitSettingsResetForm( $formData ) {
+		$out = $this->getOutput();
+
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()
+			->getMainLB( $this->config->get( 'CreateWikiDatabase' ) )
+			->getMaintenanceConnectionRef( DB_PRIMARY, [], $this->config->get( 'CreateWikiDatabase' ) );
+
+		$dbw->update(
+			'mw_settings',
+			[
+				's_settings' => '[]'
+			],
+			__METHOD__
+		);
+
+		$logEntry = new ManualLogEntry( 'managewiki', 'settings-reset' );
+		$logEntry->setPerformer( $this->getContext()->getUser() );
+		$logEntry->setTarget( SpecialPage::getTitleValueFor( 'ManageWikiDefaultPermissions' ) );
+		$logEntry->setParameters( [ '4::wiki' => $this->config->get( 'DBname' ) ] );
+		$logID = $logEntry->insert();
+		$logEntry->publish( $logID );
+
+		$out->addHTML(
+			Html::successBox(
+				Html::element(
+					'p',
+					[],
+					$this->msg( 'managewiki-success' )->plain()
+				),
+				'mw-notify-success'
+			)
+			);
+
+		return false;
+	}
+
 
 	public static function validateNewGroupName( $newGroup, $nullForm ) {
 		if ( in_array( $newGroup, MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'managewiki' )->get( 'ManageWikiPermissionsDisallowedGroups' ) ) ) {
