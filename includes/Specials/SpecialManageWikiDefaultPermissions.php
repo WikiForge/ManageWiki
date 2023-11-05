@@ -195,6 +195,9 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 			[
 				's_settings' => '[]'
 			],
+			[
+				's_dbname' => $this->config->get( 'DBname' )
+			],
 			__METHOD__
 		);
 
