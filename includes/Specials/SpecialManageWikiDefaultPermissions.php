@@ -11,6 +11,7 @@ use ManualLogEntry;
 use MediaWiki\MediaWikiServices;
 use SpecialPage;
 use UserGroupMembership;
+use WikiForge\CreateWiki\CreateWikiJson;
 use WikiForge\CreateWiki\RemoteWiki;
 use WikiForge\ManageWiki\FormFactory\ManageWikiFormFactory;
 use WikiForge\ManageWiki\Helpers\ManageWikiPermissions;
@@ -117,7 +118,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 
 			$resetPermissionsDescriptor['info'] = [
 				'type' => 'info',
-				'default' => $this->msg( 'managewiki-permissions-resetgroups-header' ),
+				'default' => $this->msg( 'managewiki-permissions-resetgroups-header' )->parse(),
 			];
 
 			$resetPermissionsForm = HTMLForm::factory( 'ooui', $resetPermissionsDescriptor, $this->getContext() );
@@ -128,12 +129,23 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 
 			$resetSettingsDescriptor['info'] = [
 				'type' => 'info',
-				'default' => $this->msg( 'managewiki-permissions-resetsettings-header' ),
+				'default' => $this->msg( 'managewiki-permissions-resetsettings-header' )->parse(),
 			];
 
 			$resetSettingsForm = HTMLForm::factory( 'ooui', $resetSettingsDescriptor, $this->getContext() );
 			$resetSettingsForm->setWrapperLegendMsg( 'managewikidefaultpermissions-resetsettings-header' );
 			$resetSettingsForm->setMethod( 'post' )->setFormIdentifier( 'resetsettingsform' )->setSubmitTextMsg( 'managewiki-permissions-resetsettings' )->setSubmitDestructive()->setSubmitCallback( [ $this, 'onSubmitSettingsResetForm' ] )->prepareForm()->show();
+
+			$resetCacheDescriptor = [];
+
+			$resetCacheDescriptor['info'] = [
+				'type' => 'info',
+				'default' => $this->msg( 'managewiki-permissions-resetcache-header' )->parse(),
+			];
+
+			$resetCacheForm = HTMLForm::factory( 'ooui', $resetCacheDescriptor, $this->getContext() );
+			$resetCacheForm->setWrapperLegendMsg( 'managewikidefaultpermissions-resetcache-header' );
+			$resetCacheForm->setMethod( 'post' )->setFormIdentifier( 'resetcacheform' )->setSubmitTextMsg( 'managewiki-permissions-resetcache' )->setSubmitDestructive()->setSubmitCallback( [ $this, 'onSubmitCacheResetForm' ] )->prepareForm()->show();
 
 		}
 	}
@@ -190,6 +202,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 			->getMainLB( $this->config->get( 'CreateWikiDatabase' ) )
 			->getMaintenanceConnectionRef( DB_PRIMARY, [], $this->config->get( 'CreateWikiDatabase' ) );
 
+		// Set the values to the defaults
 		$dbw->update(
 			'mw_settings',
 			[
@@ -201,7 +214,43 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 			__METHOD__
 		);
 
+		// Reset the cache or else the changes won't work
+		$cWJ = new CreateWikiJson( $this->config->get( 'DBname' ) );
+		$cWJ->resetWiki();
+
 		$logEntry = new ManualLogEntry( 'managewiki', 'settings-reset' );
+		$logEntry->setPerformer( $this->getContext()->getUser() );
+		$logEntry->setTarget( SpecialPage::getTitleValueFor( 'ManageWikiDefaultPermissions' ) );
+		$logEntry->setParameters( [ '4::wiki' => $this->config->get( 'DBname' ) ] );
+		$logID = $logEntry->insert();
+		$logEntry->publish( $logID );
+
+		$out->addHTML(
+			Html::successBox(
+				Html::element(
+					'p',
+					[],
+					$this->msg( 'managewiki-success' )->plain()
+				),
+				'mw-notify-success'
+			)
+			);
+
+		return false;
+	}
+
+	public function onSubmitCacheResetForm( $formData ) {
+		$out = $this->getOutput();
+
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()
+			->getMainLB( $this->config->get( 'CreateWikiDatabase' ) )
+			->getMaintenanceConnectionRef( DB_PRIMARY, [], $this->config->get( 'CreateWikiDatabase' ) );
+
+		// Reset the cache or else the changes won't work
+		$cWJ = new CreateWikiJson( $this->config->get( 'DBname' ) );
+		$cWJ->resetWiki();
+
+		$logEntry = new ManualLogEntry( 'managewiki', 'cache-reset' );
 		$logEntry->setPerformer( $this->getContext()->getUser() );
 		$logEntry->setTarget( SpecialPage::getTitleValueFor( 'ManageWikiDefaultPermissions' ) );
 		$logEntry->setParameters( [ '4::wiki' => $this->config->get( 'DBname' ) ] );
