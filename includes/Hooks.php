@@ -172,16 +172,16 @@ class Hooks {
 					}
 				}
 
-				$permissions = array_merge( json_decode( $perm->perm_permissions, true ) ?? [], $addPerms );
+				$permissions = array_merge( json_decode( $perm->perm_permissions ?? '', true ) ?? [], $addPerms );
 				$filteredPermissions = array_diff( $permissions, $removePerms );
 
 				$jsonArray['permissions'][$perm->perm_group] = [
 					'permissions' => $filteredPermissions,
-					'addgroups' => array_merge( json_decode( $perm->perm_addgroups, true ) ?? [], self::getConfig( 'ManageWikiPermissionsAdditionalAddGroups' )[$perm->perm_group] ?? [] ),
-					'removegroups' => array_merge( json_decode( $perm->perm_removegroups, true ) ?? [], self::getConfig( 'ManageWikiPermissionsAdditionalRemoveGroups' )[$perm->perm_group] ?? [] ),
-					'addself' => array_merge( json_decode( $perm->perm_addgroupstoself, true ) ?? [], self::getConfig( 'ManageWikiPermissionsAdditionalAddGroupsSelf' )[$perm->perm_group] ?? [] ),
-					'removeself' => array_merge( json_decode( $perm->perm_removegroupsfromself, true ) ?? [], self::getConfig( 'ManageWikiPermissionsAdditionalRemoveGroupsSelf' )[$perm->perm_group] ?? [] ),
-					'autopromote' => json_decode( $perm->perm_autopromote, true )
+					'addgroups' => array_merge( json_decode( $perm->perm_addgroups ?? '', true ) ?? [], self::getConfig( 'ManageWikiPermissionsAdditionalAddGroups' )[$perm->perm_group] ?? [] ),
+					'removegroups' => array_merge( json_decode( $perm->perm_removegroups ?? '', true ) ?? [], self::getConfig( 'ManageWikiPermissionsAdditionalRemoveGroups' )[$perm->perm_group] ?? [] ),
+					'addself' => array_merge( json_decode( $perm->perm_addgroupstoself ?? '', true ) ?? [], self::getConfig( 'ManageWikiPermissionsAdditionalAddGroupsSelf' )[$perm->perm_group] ?? [] ),
+					'removeself' => array_merge( json_decode( $perm->perm_removegroupsfromself ?? '', true ) ?? [], self::getConfig( 'ManageWikiPermissionsAdditionalRemoveGroupsSelf' )[$perm->perm_group] ?? [] ),
+					'autopromote' => json_decode( $perm->perm_autopromote ?? '', true )
 				];
 			}
 
