@@ -311,7 +311,7 @@ class Hooks {
 		$services = MediaWikiServices::getInstance();
 		$permissionManager = $services->getPermissionManager();
 		$userOptionsLookup = $services->getUserOptionsLookup();
-		if ( !$permissionManager->userHasRight( $user, 'managewiki' ) ) {
+		if ( !$permissionManager->userHasRight( $user, 'managewiki-core' ) ) {
 			if ( !self::getConfig( 'ManageWikiForceSidebarLinks' ) && !$userOptionsLookup->getOption( $user, 'managewikisidebar', 0 ) ) {
 				return;
 			}
