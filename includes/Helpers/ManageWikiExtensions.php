@@ -152,6 +152,12 @@ class ManageWikiExtensions {
 				continue;
 			}
 
+			// Unset 'permissions' if we are in CLI mode
+			// So that we can toggle restricted extensions in CLI
+			if ( PHP_SAPI === 'cli' && isset( $extConfig['requires']['permissions'] ) ) {
+				unset( $extConfig['requires']['permissions'] );
+			}
+
 			// Define a 'current' extension as one with no changes entry
 			$enabledExt = !isset( $this->changes[$name] );
 			// Now we need to check if we fulfil the requirements to enable this extension
