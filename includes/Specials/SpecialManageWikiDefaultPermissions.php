@@ -271,7 +271,6 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 		return false;
 	}
 
-
 	public static function validateNewGroupName( $newGroup, $nullForm ) {
 		if ( in_array( $newGroup, MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'managewiki' )->get( 'ManageWikiPermissionsDisallowedGroups' ) ) ) {
 			return 'The group you attempted to create is not allowed. Please select a different name and try again.';

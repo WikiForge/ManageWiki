@@ -16,7 +16,6 @@ use WikiForge\ManageWiki\FormFactory\ManageWikiFormFactory;
 use WikiForge\ManageWiki\Helpers\ManageWikiNamespaces;
 use WikiForge\ManageWiki\Helpers\ManageWikiPermissions;
 use WikiForge\ManageWiki\ManageWiki;
-use WikiForge\ManageWiki\Specials\SpecialManageWiki;
 
 class SpecialRemoteWiki extends SpecialPage {
 	/** @var Config */
