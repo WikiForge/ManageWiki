@@ -36,7 +36,7 @@ class SpecialManageWikiDefaultPermissions extends SpecialPage {
 	}
 
 	public function getDescription() {
-		return $this->msg( $this->canModify() ? 'managewikidefaultpermissions' : 'managewikidefaultpermissions-norights' );
+		return $this->msg( $this->canModify() ? 'managewikidefaultpermissions' : 'managewikidefaultpermissions-norights' )->text();
 	}
 
 	public function execute( $par ) {
